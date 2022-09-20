@@ -5,6 +5,7 @@ public class SwitchFeature {
         var employee = new Employee(1L, "Sakthi");
         System.out.println(gaurdedPatternSwitch(employee));
         System.out.println(nullCaseSwitch(null));
+        System.out.println(multiplePattern(3));
     }
 
     private static String patternMatchingSwitch(Object value) {
@@ -31,6 +32,14 @@ public class SwitchFeature {
             case Employee e && e.id() == 1L -> e + " is the first employee";
             case null -> "It is a null value";
             default -> "Nat a valid type";
+        };
+    }
+
+    private static String multiplePattern(int value) {
+        return switch (value) {
+            case 1 -> "1 is the number";
+            case 2, 3 -> "number is either 2 or 3";
+            default -> "not a valid number";
         };
     }
 }
